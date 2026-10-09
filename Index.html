@@ -1,0 +1,714 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSafe</title><style>
+    body {
+        background-color: #0a0f1f;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #00e5ff;
+        font-size: 35px;
+    }
+
+    p {
+        color: #cccccc;
+        font-size: 16px;
+    }
+
+    .card {
+        background-color: #151d33;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 12px;
+        border: 1px solid #00e5ff;
+    }
+
+    h2 {
+        color: #00e5ff;
+    }
+</style>
+
+</head><body><h1>🔐 CyberSafe</h1>
+
+<p>Stay Smart. Stay Safe Online.</p>
+
+<div class="card">
+    <h2>🎣 Phishing Awareness</h2>
+    <p>Learn how to identify suspicious links and messages.</p>
+</div>
+
+<div class="card">
+    <h2>🔑 Password Safety</h2>
+    <p>Learn how to create strong and secure passwords.</p>
+</div>
+
+<div class="card">
+    <h2>📱 OTP & Scam Safety</h2>
+    <p>Never share your OTP with anyone.</p>
+</div>
+
+<div class="card">
+    <h2>🛡️ Cyber Safety Tips</h2>
+    <p>Protect your personal information online.</p>
+</div>
+  
+  <div class="card">
+    <h2>🎣 What is Phishing?</h2>
+
+    <p>
+        Phishing is a cyber attack where scammers
+        pretend to be trusted people or companies
+        to steal personal information.
+    </p>
+
+    <h3>🚨 Warning Signs</h3>
+
+    <p>1. Suspicious links</p>
+    <p>2. Messages asking for OTP</p>
+    <p>3. Urgent account-block warnings</p>
+    <p>4. Unknown senders</p>
+
+    <h3>🛡️ How to Stay Safe</h3>
+
+    <p>1. Never share your OTP.</p>
+    <p>2. Avoid suspicious links.</p>
+    <p>3. Verify the sender.</p>
+    <p>4. Use official websites and apps.</p>
+</div>
+  <div class="card">
+    <h2>🔑 Password Strength Checker</h2>
+
+    <p>Enter a sample password to check its strength.</p>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter a sample password"
+        autocomplete="off"
+        oninput="checkPassword()"
+    >
+
+    <button onclick="checkPassword()">
+        Check Strength
+    </button>
+
+    <h3 id="result">Your result will appear here</h3>
+
+    <p id="tips"></p>
+</div>
+
+<style>
+    input {
+        width: 85%;
+        padding: 12px;
+        margin: 10px;
+        border-radius: 8px;
+        border: 1px solid #00e5ff;
+        background: #0a0f1f;
+        color: white;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 12px 20px;
+        background: #00e5ff;
+        color: #0a0f1f;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+</style>
+
+<script>
+    function checkPassword() {
+        let password =
+            document.getElementById("password").value;
+
+        let result =
+            document.getElementById("result");
+
+        let tips =
+            document.getElementById("tips");
+
+        let score = 0;
+
+        if (password.length >= 12) score++;
+
+        if (/[A-Z]/.test(password)) score++;
+
+        if (/[a-z]/.test(password)) score++;
+
+        if (/[0-9]/.test(password)) score++;
+
+        if (/[^A-Za-z0-9]/.test(password)) score++;
+
+        if (password.length === 0) {
+            result.innerText =
+                "Your result will appear here";
+
+            tips.innerText = "";
+        }
+        else if (password.length < 8 || score <= 2) {
+            result.innerText = "❌ Weak Password";
+
+            tips.innerText =
+                "Use a longer, unique password.";
+        }
+        else if (score <= 3) {
+            result.innerText = "⚠️ Medium Password";
+
+            tips.innerText =
+                "Try a longer password with more variety.";
+        }
+        else {
+            result.innerText = "✅ Strong Password";
+
+            tips.innerText =
+                "Good! Use a unique password for every account.";
+        }
+    }
+</script>
+  <!-- CyberSafe Cybersecurity Quiz -->
+<section class="quiz">
+    <h2>🧠 CyberSafe Logic Quiz</h2>
+    <p>Test your cybersecurity knowledge!</p>
+
+    <div id="question"></div>
+    <div id="options"></div>
+
+    <p id="result"></p>
+    <p id="score"></p>
+
+    <button onclick="nextQuestion()" id="nextBtn" hidden>
+        Next Question ➜
+    </button>
+</section>
+
+<style>
+.quiz {
+    background: #101d35;
+    color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border: 1px solid cyan;
+    font-family: Arial, sans-serif;
+}
+
+.quiz h2 {
+    color: cyan;
+}
+
+.quiz button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid cyan;
+    border-radius: 8px;
+    background: #172b49;
+    color: white;
+    cursor: pointer;
+}
+
+.quiz button:hover {
+    background: #087f8c;
+}
+
+.quiz button:disabled {
+    opacity: 0.8;
+}
+
+#result, #score {
+    font-weight: bold;
+}
+</style>
+
+<script>
+const questions = [
+{
+    q: "1. You receive an email saying your bank account will be blocked. It contains a suspicious link. What should you do?",
+    options: [
+        "Click the link immediately",
+        "Reply with your password",
+        "Open the official bank website separately",
+        "Forward it to all friends"
+    ],
+    answer: 2,
+    explanation: "Never trust suspicious links. Visit the official website separately."
+},
+{
+    q: "2. Which is the strongest password?",
+    options: [
+        "password123",
+        "Muga@2026!",
+        "12345678",
+        "yourname"
+    ],
+    answer: 1,
+    explanation: "A longer password with mixed characters is generally harder to guess. Never reuse passwords."
+},
+{
+    q: "3. Someone calls asking for your OTP to verify your bank account. What should you do?",
+    options: [
+        "Share it quickly",
+        "Send it by message",
+        "Ask your friend to share theirs",
+        "Never share the OTP"
+    ],
+    answer: 3,
+    explanation: "Never share OTPs with callers or strangers."
+},
+{
+    q: "4. A website uses HTTPS. Does that guarantee the website is genuine?",
+    options: [
+        "Yes, always",
+        "No, phishing sites can also use HTTPS",
+        "Yes, if it has images",
+        "Yes, if it loads quickly"
+    ],
+    answer: 1,
+    explanation: "HTTPS encrypts the connection, but it does not prove the website is trustworthy."
+},
+{
+    q: "5. A login appears from another country at the same time as your own login. What is the best response?",
+    options: [
+        "Ignore it always",
+        "Share your password publicly",
+        "Investigate the alert and secure the account if needed",
+        "Delete your phone"
+    ],
+    answer: 2,
+    explanation: "Check whether the login is legitimate. If it is unfamiliar, change your password and enable MFA."
+}
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function showQuestion() {
+    answered = false;
+
+    document.getElementById("result").textContent = "";
+    document.getElementById("nextBtn").hidden = true;
+
+    const q = questions[current];
+    document.getElementById("question").textContent = q.q;
+
+    const box = document.getElementById("options");
+    box.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(index);
+        box.appendChild(btn);
+    });
+
+    document.getElementById("score").textContent =
+        "Question " + (current + 1) + " of " + questions.length;
+}
+
+function checkAnswer(selected) {
+    if (answered) return;
+    answered = true;
+
+    const q = questions[current];
+    const buttons = document.querySelectorAll("#options button");
+
+    buttons.forEach(btn => btn.disabled = true);
+
+    if (selected === q.answer) {
+        score++;
+        document.getElementById("result").textContent =
+            "✅ Correct! " + q.explanation;
+    } else {
+        document.getElementById("result").textContent =
+            "❌ Not quite! " + q.explanation;
+    }
+
+    document.getElementById("nextBtn").hidden = false;
+    document.getElementById("nextBtn").textContent =
+        current === questions.length - 1 ? "See My Score 🏆" : "Next Question ➜";
+}
+
+function nextQuestion() {
+    current++;
+
+    if (current < questions.length) {
+        showQuestion();
+    } else {
+        document.getElementById("question").textContent =
+            "🎉 Quiz Completed!";
+        document.getElementById("options").innerHTML = "";
+        document.getElementById("result").textContent =
+            score >= 4 ? "Excellent cybersecurity knowledge! 🔥" :
+            "Keep learning and try again! 💙";
+        document.getElementById("score").textContent =
+            "Your Score: " + score + " / " + questions.length;
+
+        document.getElementById("nextBtn").hidden = false;
+        document.getElementById("nextBtn").textContent = "Try Again 🔄";
+        document.getElementById("nextBtn").onclick = restartQuiz;
+    }
+}
+
+function restartQuiz() {
+    current = 0;
+    score = 0;
+    document.getElementById("nextBtn").onclick = nextQuestion;
+    showQuestion();
+}
+
+showQuestion();
+</script>
+  <!-- OTP & Scam Awareness -->
+<section class="scam-section">
+    <h2>📱 OTP & Scam Safety</h2>
+    <p>Learn to recognise common online scams and protect yourself!</p>
+
+    <div class="scam-card">
+        <h3>🔑 OTP Safety</h3>
+        <p>Never share your OTP with anyone, even if they claim to be from a bank.</p>
+    </div>
+
+    <div class="scam-card">
+        <h3>📞 Fake Calls</h3>
+        <p>Scammers may pretend to be bank officers or police. Don't trust callers just because they sound official.</p>
+    </div>
+
+    <div class="scam-card">
+        <h3>🎁 Prize Scams</h3>
+        <p>If a message says you won a prize but must pay a fee first, be suspicious.</p>
+    </div>
+
+    <div class="scam-card">
+        <h3>🔗 Suspicious Links</h3>
+        <p>Don't click unexpected links asking for passwords, OTPs or banking details.</p>
+    </div>
+
+    <div class="scam-card">
+        <h3>💸 UPI Payment Scams</h3>
+        <p>You don't need to enter your UPI PIN to receive money. Never approve unknown payment requests.</p>
+    </div>
+
+    <h3 class="check-title">🧠 Test Your Scam Knowledge</h3>
+
+    <p id="scamQuestion">
+        Someone calls asking for your bank OTP. What should you do?
+    </p>
+
+    <button class="scam-btn" onclick="checkScam(1)">
+        A. Share the OTP
+    </button>
+
+    <button class="scam-btn" onclick="checkScam(2)">
+        B. Never share it
+    </button>
+
+    <button class="scam-btn" onclick="checkScam(3)">
+        C. Send it by message
+    </button>
+
+    <p id="scamResult"></p>
+</section>
+
+<style>
+.scam-section {
+    background: #0b1528;
+    color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid cyan;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.scam-section h2,
+.scam-section h3 {
+    color: #00ffff;
+}
+
+.scam-card {
+    background: #142541;
+    padding: 15px;
+    margin: 12px 0;
+    border-left: 4px solid cyan;
+    border-radius: 8px;
+}
+
+.scam-card p {
+    line-height: 1.6;
+}
+
+.check-title {
+    margin-top: 25px;
+}
+
+.scam-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid cyan;
+    border-radius: 8px;
+    background: #142541;
+    color: white;
+    font-size: 15px;
+}
+
+.scam-btn:active {
+    background: #087f8c;
+}
+
+#scamResult {
+    font-weight: bold;
+    line-height: 1.6;
+}
+</style>
+
+<script>
+function checkScam(answer) {
+    const result = document.getElementById("scamResult");
+    const buttons = document.querySelectorAll(".scam-btn");
+
+    buttons.forEach(button => button.disabled = true);
+
+    if (answer === 2) {
+        result.textContent =
+            "✅ Correct! Never share your OTP. Protect your accounts!";
+    } else {
+        result.textContent =
+            "❌ Incorrect! Never share your OTP with callers or strangers.";
+    }
+}
+</script>
+  <!-- Password Generator -->
+<section class="generator">
+    <h2>🔑 Password Generator</h2>
+    <p>Create a strong random password!</p>
+
+    <label for="passLength">Password Length:</label>
+
+    <input
+        type="number"
+        id="passLength"
+        value="16"
+        min="8"
+        max="32"
+    >
+
+    <label>
+        <input type="checkbox" id="uppercase" checked>
+        Uppercase (A-Z)
+    </label>
+
+    <label>
+        <input type="checkbox" id="lowercase" checked>
+        Lowercase (a-z)
+    </label>
+
+    <label>
+        <input type="checkbox" id="numbers" checked>
+        Numbers (0-9)
+    </label>
+
+    <label>
+        <input type="checkbox" id="symbols" checked>
+        Symbols (!@#$)
+    </label>
+
+    <button onclick="generatePassword()">
+        Generate Password 🔐
+    </button>
+
+    <input
+        type="text"
+        id="generatedPassword"
+        placeholder="Your password appears here"
+        readonly
+    >
+
+    <button onclick="copyPassword()">
+        📋 Copy Password
+    </button>
+
+    <p id="generatorMessage"></p>
+</section>
+
+<style>
+.generator {
+    background: #101d35;
+    color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid cyan;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.generator h2 {
+    color: cyan;
+}
+
+.generator label {
+    display: block;
+    margin: 14px 0;
+}
+
+.generator input[type="number"],
+.generator input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid cyan;
+    border-radius: 8px;
+    background: #172b49;
+    color: white;
+}
+
+.generator input[type="checkbox"] {
+    accent-color: cyan;
+}
+
+.generator button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    background: #087f8c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+}
+</style>
+
+<script>
+function generatePassword() {
+    const length = Number(
+        document.getElementById("passLength").value
+    );
+
+    let chars = "";
+    let required = [];
+
+    if (document.getElementById("uppercase").checked) {
+        chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        required.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    }
+
+    if (document.getElementById("lowercase").checked) {
+        chars += "abcdefghijklmnopqrstuvwxyz";
+        required.push("abcdefghijklmnopqrstuvwxyz");
+    }
+
+    if (document.getElementById("numbers").checked) {
+        chars += "0123456789";
+        required.push("0123456789");
+    }
+
+    if (document.getElementById("symbols").checked) {
+        chars += "!@#$%^&*()-_=+?";
+        required.push("!@#$%^&*()-_=+?");
+    }
+
+    const message = document.getElementById("generatorMessage");
+    const output = document.getElementById("generatedPassword");
+
+    if (!Number.isInteger(length) || length < 8 || length > 32) {
+        message.textContent = "Choose a length from 8 to 32.";
+        output.value = "";
+        return;
+    }
+
+    if (required.length === 0) {
+        message.textContent = "Select at least one character type.";
+        output.value = "";
+        return;
+    }
+
+    if (!window.crypto || !window.crypto.getRandomValues) {
+        message.textContent =
+            "Secure random generation is unavailable in this preview.";
+        output.value = "";
+        return;
+    }
+
+    function randomIndex(max) {
+        const limit = Math.floor(4294967296 / max) * max;
+        const array = new Uint32Array(1);
+        let value;
+
+        do {
+            window.crypto.getRandomValues(array);
+            value = array[0];
+        } while (value >= limit);
+
+        return value % max;
+    }
+
+    let password = "";
+
+    // Include one character from each selected type.
+    required.forEach(set => {
+        password += set[randomIndex(set.length)];
+    });
+
+    // Fill the remaining positions.
+    while (password.length < length) {
+        password += chars[randomIndex(chars.length)];
+    }
+
+    // Shuffle the password.
+    const result = password.split("");
+
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = randomIndex(i + 1);
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    output.value = result.join("");
+    message.textContent = "✅ Strong random password generated!";
+}
+
+async function copyPassword() {
+    const output = document.getElementById("generatedPassword");
+    const message = document.getElementById("generatorMessage");
+
+    if (!output.value) {
+        message.textContent = "Generate a password first!";
+        return;
+    }
+
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(output.value);
+        } else {
+            output.focus();
+            output.select();
+
+            if (!document.execCommand("copy")) {
+                throw new Error("Copy unavailable");
+            }
+        }
+
+        message.textContent = "✅ Password copied!";
+    } catch (error) {
+        message.textContent =
+            "Select the password and copy it manually.";
+    }
+}
+</script>
+
+</body>
+  
+</html>
